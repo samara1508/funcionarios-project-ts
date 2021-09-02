@@ -1,0 +1,37 @@
+.funcionarios .detalhes {
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.funcionarios .detalhes:hover {
+  background-color: blueviolet;
+  color: white;
+}
+
+.funcionarios .table-row {
+  padding: 10px 0;
+}
+
+.funcionarios .table-row:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+table, td, th, tfoot {
+  border:solid 1px rgb(29, 24, 21); 
+  padding:5px;
+}
+
+tr {
+  background-color: rgb(253, 253, 253);
+  color: rgb(117, 40, 128);
+}
+
+th {
+  background-color: rgba(214, 182, 233, 0.87);
+}
+
+table {
+  text-align: center;
+  margin: 0 auto;
+}

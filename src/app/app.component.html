@@ -1,0 +1,43 @@
+<app-usuario></app-usuario>
+
+<table class="funcionarios">
+    <thead>
+      <tr><th colspan="8" class = "titulo">Tabela de Funcionários</th></tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><b>Nome</b></td>
+          <td><b>Filial</b></td>
+          <td><b>Data de Admissão</b></td>
+          <td><b>Cargo</b></td>
+          <td><b>Salário</b></td>
+          <td><b>Detalhes</b></td>
+          <td><b>Ajustar salário</b></td>
+          <td><b>Remover</b></td>
+      </tr>
+    <tr class="table-row" *ngFor="let funcionario of funcionarios" (click)="selecionarFuncionario(funcionario)">
+      <td>{{ funcionario.nome | titlecase }}</td>
+      <td>{{ funcionario.filial | filial:true }}</td>
+      <td>{{ funcionario.dataAdmissao | date:'dd/MM/yyyy' }}</td>
+      <td>{{ funcionario.cargo }}</td>
+      <td>{{ funcionario.salario | currency:'BRL' }}</td>
+      <td class="detalhes" (click)="verDetalhes(funcionario)">Ver detalhes</td>
+      <td (click)="ajustarSalario(funcionario)">Ajustar salário</td>
+      <td (click)="removerFuncionario(funcionario)">Remover</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <button (click)="removerUltimoFuncionario()" type="button">Remover ultimo funcionario</button>
+  <button style="margin-left: 5px" (click)="adicionarFuncionario()" type="button">Adicionar</button>
+</div>
+
+<div *ngIf="funcionarioSelecionado">
+  <hr/>
+  <app-funcionario
+    (deselecionarFuncionario)="deselecionarFuncionario()"
+    [funcionario]="funcionarioSelecionado"
+  ></app-funcionario>
+</div>
+
